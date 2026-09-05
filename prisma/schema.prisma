@@ -8,16 +8,19 @@ datasource db {
 }
 
 model College {
-  id         String   @id @default(cuid())
-  name       String
-  location   String
-  fees       Int
-  rating     Float
-  overview   String
-  courses    Json
-  placements Json
-  createdAt  DateTime @default(now())
-  reviews    Review[]
+  id            String   @id @default(cuid())
+  name          String
+  location      String
+  fees          Int
+  rating        Float
+  overview      String
+  courses       Json
+  placementRate Float
+  campusSize    Int
+  campusRating  Float
+  facilities    Json
+  createdAt     DateTime @default(now())
+  reviews       Review[]
 }
 
 model Review {
