@@ -13,6 +13,7 @@ model College {
   location   String
   fees       Int
   rating     Float
+  overview   String
   courses    Json
   placements Json
   createdAt  DateTime @default(now())
