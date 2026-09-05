@@ -13,7 +13,7 @@
     "seed": "ts node prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^6.19.3",
     "dotenv": "^17.4.2",
     "next": "16.3.4",
     "nodemon": "^3.1.14",
@@ -28,8 +28,16 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
+    "prisma": "^6.19.3",
     "tailwindcss": "^4",
     "tsx": "^4.23.13",
     "typescript": "^5"
+  },
+  "allowScripts": {
+    "@prisma/client@6.19.3": true,
+    "@prisma/engines@6.19.3": true,
+    "esbuild@0.28.2": true,
+    "unrs-resolver@1.12.2": true,
+    "prisma@6.19.3": true
   }
 }
