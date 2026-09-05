@@ -16,8 +16,9 @@ model College {
   overview      String
   courses       Json
   placementRate Float
+  placements    Json
   campusSize    Int
-  campusRating  Float
+  nirfRanking   Int
   facilities    Json
   createdAt     DateTime @default(now())
   reviews       Review[]

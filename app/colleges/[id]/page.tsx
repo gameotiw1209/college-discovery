@@ -1,9 +1,10 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { notFound } from 'next/navigation'
-interface Review {
-    id:string
-    content:string
-    rating:number
+interface Placements {
+  avgPackageLPA: number
+  highestPackageLPA: number
+  topRecruiters: string[]
+  year: number
 }
 
 interface CollegeDetail {
@@ -14,11 +15,11 @@ interface CollegeDetail {
   rating: number
   overview: string
   courses: string[]
-  placements: {
-    average: number
-    highest: number
-  }
-  reviews: Review[]
+  placementRate: number
+  placements: Placements
+  campusSize: number
+  nirfRanking: number
+  facilities: string[]
 }
 
 async function getCollege(id: string): Promise<CollegeDetail | null> {
@@ -100,44 +101,49 @@ export default async function CollegeDetailPage({
       </section>
 
       <section className="mb-8">
-        <h2 className="text-lg font-semibold mb-2">
-          Placements
-        </h2>
-
-        <p className="text-gray-700">
-          Average: ₹{college.placements.average.toLocaleString()}
-        </p>
-
-        <p className="text-gray-700">
-          Highest: ₹{college.placements.highest.toLocaleString()}
-        </p>
-      </section>
-
-      <section>
-        <h2 className="text-lg font-semibold mb-2">
-          Reviews
-        </h2>
-
-        {college.reviews.length === 0 && (
-          <p className="text-gray-500">
-            No reviews yet.
-          </p>
-        )}
-
-        {college.reviews.map((review) => (
-          <Card key={review.id} className="mb-3">
-            <CardContent className="pt-4">
-              <p className="text-sm text-gray-500 mb-1">
-                {review.rating} ★
-              </p>
-
-              <p>
-                {review.content}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
-      </section>
+  <h2 className="text-lg font-semibold mb-2">Placements</h2>
+  <div className="grid grid-cols-3 gap-4 mb-4">
+    <Card>
+      <CardHeader><CardTitle className="text-sm text-gray-500">Placement Rate</CardTitle></CardHeader>
+      <CardContent className="text-xl font-semibold">{college.placementRate}%</CardContent>
+    </Card>
+    <Card>
+      <CardHeader><CardTitle className="text-sm text-gray-500">Avg Package</CardTitle></CardHeader>
+      <CardContent className="text-xl font-semibold">₹{college.placements.avgPackageLPA} LPA</CardContent>
+    </Card>
+    <Card>
+      <CardHeader><CardTitle className="text-sm text-gray-500">Highest Package</CardTitle></CardHeader>
+      <CardContent className="text-xl font-semibold">₹{college.placements.highestPackageLPA} LPA</CardContent>
+    </Card>
+  </div>
+  <p className="text-sm text-gray-500 mb-2">Top Recruiters ({college.placements.year})</p>
+  <div className="flex flex-wrap gap-2">
+    {college.placements.topRecruiters.map((company) => (
+      <span
+        key={company}
+        className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700"
+      >
+        {company}
+      </span>
+    ))}
+  </div>
+</section>
+     <section className="mb-8">
+  <h2 className="text-lg font-semibold mb-2">Campus</h2>
+  <p className="text-gray-700 mb-2">
+    {college.campusSize} acres · NIRF Ranking #{college.nirfRanking}
+  </p>
+  <div className="flex flex-wrap gap-2">
+    {college.facilities.map((facility) => (
+      <span
+        key={facility}
+        className="px-3 py-1 bg-blue-50 rounded-full text-sm text-blue-700"
+      >
+        {facility}
+      </span>
+    ))}
+  </div>
+</section>
     </div>
   )
 }
