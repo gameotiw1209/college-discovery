@@ -6,6 +6,7 @@ export async function GET(request: NextRequest) {
 
   const search = searchParams.get('search') || ''
   const location = searchParams.get('location') || ''
+   const minRating = searchParams.get('minRating')
   const page = parseInt(searchParams.get('page') || '1')
   const pageSize = 10
 
@@ -16,6 +17,9 @@ export async function GET(request: NextRequest) {
         : {},
       location
         ? { location: { contains: location, mode: 'insensitive' as const } }
+        : {},
+      minRating
+        ? { rating: { gte: parseFloat(minRating) } }
         : {},
     ],
   }
