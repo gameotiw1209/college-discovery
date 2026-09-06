@@ -78,7 +78,7 @@ export default async function CollegesPage({
     await getColleges(params)
 
   return (
-    <div className="max-w-5xl mx-auto p-8">
+    <div className="max-w-5xl mx-auto p-8 pt-24">
       <h1 className="text-2xl font-bold mb-6">
         Colleges
       </h1>
