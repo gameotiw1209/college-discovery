@@ -39,7 +39,7 @@ export default function Home() {
         </p>
 
         <Link
-          href="/"
+          href="/login"
           className="font-heading mt-10 px-8 py-3 rounded-full border border-white/30 text-sm tracking-wide hover:bg-white hover:text-black transition-colors"
         >
           Get Started

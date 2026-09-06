@@ -170,7 +170,7 @@ function ComparePageContent() {
             Compare
           </span>
         </div>
-
+        <Link href="/saved" className="text-white/50 hover:text-white text-lg">🔖</Link>
         <button className="rounded-full border border-white/15 px-4 py-1.5 text-sm hover:bg-white/10 transition-colors">
           Logout
         </button>

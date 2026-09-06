@@ -31,10 +31,10 @@ interface College {
   campusSize: number
   nirfRanking: number
   facilities: string[]
-  reviews:Review[]
+  reviews: Review[]
 }
 
-type Tab = 'overview' | 'fees' | 'campus' |'reviews'
+type Tab = 'overview' | 'fees' | 'campus' | 'reviews'
 
 export default function CollegesPage() {
   const router = useRouter()
@@ -47,6 +47,7 @@ export default function CollegesPage() {
   const [locationFilter, setLocationFilter] = useState('')
   const [sortByNirf, setSortByNirf] = useState(false)
   const [activeTab, setActiveTab] = useState<Tab>('overview')
+  const [likedIds, setLikedIds] = useState<string[]>([])
 
   const [page, setPage] = useState(1)
   const pageSize = 10 // 5 columns × 2 rows
@@ -56,23 +57,22 @@ export default function CollegesPage() {
       .then((res) => res.json())
       .then((data: { colleges: College[] }) => setColleges(data.colleges))
   }, [])
-//logic for sorting things 
+
+  // logic for sorting things
   const filtered = useMemo(() => {
-  let list = colleges.filter(
-    (c) =>
-      c.name.toLowerCase().includes(search.toLowerCase()) &&
-      c.rating >= minRating &&
-      c.location.toLowerCase().includes(locationFilter.toLowerCase())
-  )
-
-  if (sortByNirf) {
-    list = [...list].sort(
-      (a, b) => a.nirfRanking - b.nirfRanking
+    let list = colleges.filter(
+      (c) =>
+        c.name.toLowerCase().includes(search.toLowerCase()) &&
+        c.rating >= minRating &&
+        c.location.toLowerCase().includes(locationFilter.toLowerCase())
     )
-  }
 
-  return list
-}, [colleges, search, minRating, locationFilter, sortByNirf])
+    if (sortByNirf) {
+      list = [...list].sort((a, b) => a.nirfRanking - b.nirfRanking)
+    }
+
+    return list
+  }, [colleges, search, minRating, locationFilter, sortByNirf])
 
   const totalPages = Math.ceil(filtered.length / pageSize)
   const paginated = filtered.slice((page - 1) * pageSize, page * pageSize)
@@ -91,6 +91,36 @@ export default function CollegesPage() {
     })
   }
 
+  // useEffect saveData
+  useEffect(() => {
+    fetch('/api/saved')
+      .then((res) => res.json())
+      .then((data: { liked: string[] }) => setLikedIds(data.liked))
+  }, [])
+
+  const toggleLike = async (e: React.MouseEvent, collegeId: string) => {
+    e.stopPropagation()
+
+    const isLiked = likedIds.includes(collegeId)
+
+    const res = await fetch('/api/saved', {
+      method: isLiked ? 'DELETE' : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ collegeId }),
+    })
+
+    if (res.status === 401) {
+      router.push('/login')
+      return
+    }
+
+    setLikedIds((prev) =>
+      isLiked
+        ? prev.filter((id) => id !== collegeId)
+        : [...prev, collegeId]
+    )
+  }
+
   const openDetail = (id: string) => {
     setSelectedId(id)
     setActiveTab('overview')
@@ -101,7 +131,9 @@ export default function CollegesPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <nav className="flex items-center justify-between px-10 py-5 border-b border-white/10">
-        <Link href="/" className="font-heading text-xl font-bold tracking-tight">findCollege</Link>
+        <Link href="/" className="font-heading text-xl font-bold tracking-tight">
+          findCollege
+        </Link>
         <div className="flex items-center gap-8 text-sm font-heading">
           <span className="px-4 py-1.5 rounded-full bg-white/10">Colleges</span>
           <Link href={`/compare?ids=${compareIds.join(',')}`} className="text-white/50 hover:text-white transition-colors">
@@ -117,13 +149,10 @@ export default function CollegesPage() {
         <div className="flex items-center gap-3 mb-4">
           <h1 className="font-heading text-2xl font-bold">Colleges</h1>
           <span className="px-3 py-1 rounded-full bg-white/10 text-xs text-white/70">
-            {colleges.length}  Institutes
+            {colleges.length} Institutes
           </span>
           {selected && (
-            <button
-              onClick={backToGrid}
-              className="ml-auto text-sm px-4 py-1.5 rounded-full border border-white/15 hover:bg-white/10 transition-colors"
-            >
+            <button onClick={backToGrid} className="ml-auto text-sm px-4 py-1.5 rounded-full border border-white/15 hover:bg-white/10 transition-colors">
               ← Back to all colleges
             </button>
           )}
@@ -138,12 +167,12 @@ export default function CollegesPage() {
               className="flex-1 min-w-[200px] bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm outline-none focus:border-white/30"
             />
             <input
-  type="text"
-  value={locationFilter}
-  onChange={(e) => setLocationFilter(e.target.value)}
-  placeholder="Filter by location..."
-  className="bg-black/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white outline-none placeholder:text-white/40"
-/>
+              type="text"
+              value={locationFilter}
+              onChange={(e) => setLocationFilter(e.target.value)}
+              placeholder="Filter by location..."
+              className="bg-black/5 border border-white/10 rounded-full px-4 py-2 text-sm text-white outline-none placeholder:text-white/40"
+            />
             <select
               value={minRating}
               onChange={(e) => setMinRating(Number(e.target.value))}
@@ -182,7 +211,9 @@ export default function CollegesPage() {
                   <span className="text-[10px] px-2 py-1 rounded-full bg-white/10 text-white/70">
                     NIRF #{college.nirfRanking}
                   </span>
-                  <span className="flex items-center gap-1 text-xs font-semibold">★ {college.rating}</span>
+                  <span className="flex items-center gap-1 text-xs font-semibold">
+                    ★ {college.rating}
+                  </span>
                 </div>
                 <h3 className="font-heading text-sm font-bold leading-tight mb-1">{college.name}</h3>
                 <p className="text-xs text-white/50 mb-3">{college.location}</p>
@@ -190,16 +221,28 @@ export default function CollegesPage() {
                   <p className="text-xs text-white/40">₹{college.fees.toLocaleString()} fees</p>
                   <p className="text-xs text-white/40">₹{college.placements.avgPackageLPA} LPA avg</p>
                 </div>
-                <span
-                  onClick={(e) => { e.stopPropagation(); toggleCompare(college.id) }}
-                  className={`mt-3 text-center text-[11px] px-2 py-1.5 rounded-full border cursor-pointer ${
-                    compareIds.includes(college.id)
-                      ? 'bg-white text-black border-white'
-                      : 'border-white/20 text-white/70'
-                  }`}
-                >
-                  {compareIds.includes(college.id) ? '✓ Comparing' : '+ Compare'}
-                </span>
+                {/* Compare + Like */}
+<div className="mt-3 flex items-center gap-2">
+  <span
+    onClick={(e) => {
+      e.stopPropagation()
+      toggleCompare(college.id)
+    }}
+    className={`flex-1 text-center text-[11px] px-2 py-1.5 rounded-full border cursor-pointer ${
+      compareIds.includes(college.id) ? 'bg-white text-black border-white' : 'border-white/20 text-white/70'
+    }`}
+  >
+    {compareIds.includes(college.id) ? '✓ Comparing' : '+ Compare'}
+  </span>
+  <span
+  onClick={(e) => toggleLike(e, college.id)}
+  className={`text-lg cursor-pointer transition-colors ${
+    likedIds.includes(college.id) ? 'text-red-400' : 'text-white/30 hover:text-white/60'
+  }`}
+>
+  {likedIds.includes(college.id) ? '♥' : '♡'}
+</span>
+</div>
               </button>
             ))}
           </div>
@@ -219,7 +262,9 @@ export default function CollegesPage() {
               >
                 Previous
               </button>
-              <span className="text-sm text-white/50">Page {page} of {totalPages}</span>
+              <span className="text-sm text-white/50">
+                Page {page} of {totalPages}
+              </span>
               <button
                 disabled={page === totalPages}
                 onClick={() => setPage((p) => p + 1)}
@@ -252,7 +297,6 @@ export default function CollegesPage() {
 
             <div className="p-6">
               <p className="text-sm text-white/50 mb-6">{selected.location}</p>
-
               <div className="grid grid-cols-4 gap-4 mb-6">
                 <div className="text-center rounded-xl bg-white/5 py-4">
                   <p className="text-xs text-white/40 uppercase mb-1">Highest Package</p>
@@ -273,7 +317,7 @@ export default function CollegesPage() {
               </div>
 
               <div className="flex gap-2 mb-6 border-b border-white/10 pb-4">
-                {(['overview', 'fees', 'campus','reviews'] as Tab[]).map((tab) => (
+                {(['overview', 'fees', 'campus', 'reviews'] as Tab[]).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
@@ -295,7 +339,9 @@ export default function CollegesPage() {
               {activeTab === 'overview' && (
                 <div>
                   <p className="text-white/70 mb-6 leading-relaxed">{selected.overview}</p>
-                  <p className="text-xs text-white/40 uppercase mb-3">Recruiters ({selected.placements.year})</p>
+                  <p className="text-xs text-white/40 uppercase mb-3">
+                    Recruiters ({selected.placements.year})
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {selected.placements.topRecruiters.map((r) => (
                       <span key={r} className="px-3 py-1.5 rounded-full bg-white/10 text-sm">{r}</span>
@@ -327,7 +373,28 @@ export default function CollegesPage() {
                   </div>
                 </div>
               )}
-              
+
+              {activeTab === 'reviews' && (
+                <div>
+                  {selected.reviews?.length > 0 ? (
+                    <div className="space-y-4">
+                      {selected.reviews.map((review) => (
+                        <div key={review.id} className="rounded-xl bg-white/5 border border-white/10 p-5">
+                          <div className="flex items-center gap-2 mb-3">
+                            <span className="text-sm">{'★'.repeat(review.rating)}</span>
+                            <span className="text-xs text-white/40">{review.rating}/5</span>
+                          </div>
+                          <p className="text-sm text-white/70 leading-relaxed">{review.content}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="rounded-xl bg-white/5 p-6 text-center">
+                      <p className="text-white/50 text-sm">No reviews available for this college.</p>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -336,7 +403,9 @@ export default function CollegesPage() {
       {compareIds.length >= 2 && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-white text-black rounded-full px-6 py-3 flex items-center gap-4 shadow-lg">
           <span className="text-sm font-medium">{compareIds.length} colleges selected</span>
-          <button onClick={() => setCompareIds([])} className="text-sm text-black/60">Clear</button>
+          <button onClick={() => setCompareIds([])} className="text-sm text-black/60">
+            Clear
+          </button>
           <button
             onClick={() => router.push(`/compare?ids=${compareIds.join(',')}`)}
             className="bg-black text-white text-sm px-4 py-2 rounded-full"
