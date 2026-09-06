@@ -1,0 +1,1130 @@
+[
+  {
+    "collegeName": "IIT Bombay",
+    "reviews": [
+      {
+        "content": "The alumni network from IIT Bombay opens doors long after you graduate.",
+        "rating": 5
+      },
+      {
+        "content": "The faculty and research exposure at IIT Bombay genuinely push you to think beyond the syllabus.",
+        "rating": 4
+      },
+      {
+        "content": "IIT Bombay is great on paper but the competition can be mentally exhausting if you're not prepared for it.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Delhi",
+    "reviews": [
+      {
+        "content": "The administrative bureaucracy at IIT Delhi makes even simple things unnecessarily difficult.",
+        "rating": 1
+      },
+      {
+        "content": "Mental health support at IIT Delhi is basically non-existent given how stressful the environment is.",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Madras",
+    "reviews": [
+      {
+        "content": "Being surrounded by this level of talent at IIT Madras is intense but it makes you grow fast.",
+        "rating": 4
+      },
+      {
+        "content": "IIT Madras is great on paper but the competition can be mentally exhausting if you're not prepared for it.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Kanpur",
+    "reviews": [
+      {
+        "content": "Academics at IIT Kanpur are excellent but the workload leaves almost no time for anything else.",
+        "rating": 3
+      },
+      {
+        "content": "Placements outside core ENTC roles at IIT Kanpur aren't as strong as people assume from the branding.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Kharagpur",
+    "reviews": [
+      {
+        "content": "Being surrounded by this level of talent at IIT Kharagpur is intense but it makes you grow fast.",
+        "rating": 5
+      },
+      {
+        "content": "The faculty and research exposure at IIT Kharagpur genuinely push you to think beyond the syllabus.",
+        "rating": 5
+      },
+      {
+        "content": "Labs, clubs and the overall ecosystem at IIT Kharagpur make it worth every rupee of the fees.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Roorkee",
+    "reviews": [
+      {
+        "content": "Academics at IIT Roorkee are excellent but the workload leaves almost no time for anything else.",
+        "rating": 3
+      },
+      {
+        "content": "The faculty and research exposure at IIT Roorkee genuinely push you to think beyond the syllabus.",
+        "rating": 4
+      },
+      {
+        "content": "Labs, clubs and the overall ecosystem at IIT Roorkee make it worth every rupee of the fees.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Hyderabad",
+    "reviews": [
+      {
+        "content": "The alumni network from IIT Hyderabad opens doors long after you graduate.",
+        "rating": 4
+      },
+      {
+        "content": "IIT Hyderabad is great on paper but the competition can be mentally exhausting if you're not prepared for it.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Guwahati",
+    "reviews": [
+      {
+        "content": "The faculty and research exposure at IIT Guwahati genuinely push you to think beyond the syllabus.",
+        "rating": 5
+      },
+      {
+        "content": "Academics at IIT Guwahati are excellent but the workload leaves almost no time for anything else.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT (BHU) Varanasi",
+    "reviews": [
+      {
+        "content": "The alumni network from IIT (BHU) Varanasi opens doors long after you graduate.",
+        "rating": 4
+      },
+      {
+        "content": "Labs, clubs and the overall ecosystem at IIT (BHU) Varanasi make it worth every rupee of the fees.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Indore",
+    "reviews": [
+      {
+        "content": "The faculty and research exposure at IIT Indore genuinely push you to think beyond the syllabus.",
+        "rating": 5
+      },
+      {
+        "content": "Academics at IIT Indore are excellent but the workload leaves almost no time for anything else.",
+        "rating": 3
+      },
+      {
+        "content": "The alumni network from IIT Indore opens doors long after you graduate.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT (ISM) Dhanbad",
+    "reviews": [
+      {
+        "content": "The alumni network from IIT (ISM) Dhanbad opens doors long after you graduate.",
+        "rating": 4
+      },
+      {
+        "content": "Hostel infrastructure at IIT (ISM) Dhanbad hasn't kept pace with how much the institute has grown.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Gandhinagar",
+    "reviews": [
+      {
+        "content": "Placements at IIT Gandhinagar are on another level — Mechanical students routinely get offers most people only dream of.",
+        "rating": 5
+      },
+      {
+        "content": "Labs, clubs and the overall ecosystem at IIT Gandhinagar make it worth every rupee of the fees.",
+        "rating": 4
+      },
+      {
+        "content": "Being surrounded by this level of talent at IIT Gandhinagar is intense but it makes you grow fast.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Jodhpur",
+    "reviews": [
+      {
+        "content": "The alumni network from IIT Jodhpur opens doors long after you graduate.",
+        "rating": 5
+      },
+      {
+        "content": "Being surrounded by this level of talent at IIT Jodhpur is intense but it makes you grow fast.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Ropar",
+    "reviews": [
+      {
+        "content": "Being surrounded by this level of talent at IIT Ropar is intense but it makes you grow fast.",
+        "rating": 5
+      },
+      {
+        "content": "Placements outside core Civil roles at IIT Ropar aren't as strong as people assume from the branding.",
+        "rating": 3
+      },
+      {
+        "content": "IIT Ropar is great on paper but the competition can be mentally exhausting if you're not prepared for it.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Bhubaneswar",
+    "reviews": [
+      {
+        "content": "IIT Bhubaneswar is great on paper but the competition can be mentally exhausting if you're not prepared for it.",
+        "rating": 3
+      },
+      {
+        "content": "The alumni network from IIT Bhubaneswar opens doors long after you graduate.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Patna",
+    "reviews": [
+      {
+        "content": "IIT Patna is great on paper but the competition can be mentally exhausting if you're not prepared for it.",
+        "rating": 3
+      },
+      {
+        "content": "The faculty and research exposure at IIT Patna genuinely push you to think beyond the syllabus.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Mandi",
+    "reviews": [
+      {
+        "content": "Placements at IIT Mandi are on another level — Civil students routinely get offers most people only dream of.",
+        "rating": 5
+      },
+      {
+        "content": "Labs, clubs and the overall ecosystem at IIT Mandi make it worth every rupee of the fees.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Bhilai",
+    "reviews": [
+      {
+        "content": "The administrative bureaucracy at IIT Bhilai makes even simple things unnecessarily difficult.",
+        "rating": 1
+      },
+      {
+        "content": "The faculty and research exposure at IIT Bhilai genuinely push you to think beyond the syllabus.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Goa",
+    "reviews": [
+      {
+        "content": "Being surrounded by this level of talent at IIT Goa is intense but it makes you grow fast.",
+        "rating": 5
+      },
+      {
+        "content": "The alumni network from IIT Goa opens doors long after you graduate.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Jammu",
+    "reviews": [
+      {
+        "content": "Being surrounded by this level of talent at IIT Jammu is intense but it makes you grow fast.",
+        "rating": 5
+      },
+      {
+        "content": "Mental health support at IIT Jammu is basically non-existent given how stressful the environment is.",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Dharwad",
+    "reviews": [
+      {
+        "content": "The faculty and research exposure at IIT Dharwad genuinely push you to think beyond the syllabus.",
+        "rating": 4
+      },
+      {
+        "content": "IIT Dharwad is great on paper but the competition can be mentally exhausting if you're not prepared for it.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Tirupati",
+    "reviews": [
+      {
+        "content": "Placements at IIT Tirupati are on another level — ENTC students routinely get offers most people only dream of.",
+        "rating": 4
+      },
+      {
+        "content": "Mental health support at IIT Tirupati is basically non-existent given how stressful the environment is.",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "collegeName": "IIT Palakkad",
+    "reviews": [
+      {
+        "content": "Placements outside core IT roles at IIT Palakkad aren't as strong as people assume from the branding.",
+        "rating": 3
+      },
+      {
+        "content": "Labs, clubs and the overall ecosystem at IIT Palakkad make it worth every rupee of the fees.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Veermata Jijabai Technological Institute (VJTI)",
+    "reviews": [
+      {
+        "content": "Seniors and professors at Veermata Jijabai Technological Institute (VJTI) go out of their way to help you with projects and interview prep.",
+        "rating": 4
+      },
+      {
+        "content": "Veermata Jijabai Technological Institute (VJTI) has decent labs and the Mechanical department in particular is quite active with industry projects.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Institute of Chemical Technology (ICT) Mumbai",
+    "reviews": [
+      {
+        "content": "Seniors and professors at Institute of Chemical Technology (ICT) Mumbai go out of their way to help you with projects and interview prep.",
+        "rating": 5
+      },
+      {
+        "content": "Institute of Chemical Technology (ICT) Mumbai has decent labs and the Electronics department in particular is quite active with industry projects.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Sardar Patel College of Engineering (SPCE)",
+    "reviews": [
+      {
+        "content": "Seniors and professors at Sardar Patel College of Engineering (SPCE) go out of their way to help you with projects and interview prep.",
+        "rating": 5
+      },
+      {
+        "content": "Fees at Sardar Patel College of Engineering (SPCE) have gone up but the facilities haven't really improved to match.",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "collegeName": "Sardar Patel Institute of Technology (SPIT)",
+    "reviews": [
+      {
+        "content": "Sardar Patel Institute of Technology (SPIT) gave me solid Mechanical fundamentals and the faculty were always approachable.",
+        "rating": 5
+      },
+      {
+        "content": "Placements at Sardar Patel Institute of Technology (SPIT) are fine for IT-service companies but core Civil roles are harder to land.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "K J Somaiya College of Engineering",
+    "reviews": [
+      {
+        "content": "Fees at K J Somaiya College of Engineering have gone up but the facilities haven't really improved to match.",
+        "rating": 2
+      },
+      {
+        "content": "The campus fests and clubs at K J Somaiya College of Engineering make college life fun beyond just academics.",
+        "rating": 5
+      },
+      {
+        "content": "The Electronics curriculum at K J Somaiya College of Engineering feels outdated compared to what's actually asked in interviews.",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "collegeName": "Dwarkadas J Sanghvi College of Engineering (DJSCE)",
+    "reviews": [
+      {
+        "content": "For the fees, the placement support and internship tie-ups at Dwarkadas J Sanghvi College of Engineering (DJSCE) are genuinely good value.",
+        "rating": 5
+      },
+      {
+        "content": "Dwarkadas J Sanghvi College of Engineering (DJSCE) has decent labs and the Electrical department in particular is quite active with industry projects.",
+        "rating": 4
+      },
+      {
+        "content": "Seniors and professors at Dwarkadas J Sanghvi College of Engineering (DJSCE) go out of their way to help you with projects and interview prep.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Thadomal Shahani Engineering College (TSEC)",
+    "reviews": [
+      {
+        "content": "For the fees, the placement support and internship tie-ups at Thadomal Shahani Engineering College (TSEC) are genuinely good value.",
+        "rating": 5
+      },
+      {
+        "content": "Seniors and professors at Thadomal Shahani Engineering College (TSEC) go out of their way to help you with projects and interview prep.",
+        "rating": 5
+      },
+      {
+        "content": "The campus fests and clubs at Thadomal Shahani Engineering College (TSEC) make college life fun beyond just academics.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Vidyalankar Institute of Technology (VIT Mumbai)",
+    "reviews": [
+      {
+        "content": "Placements at Vidyalankar Institute of Technology (VIT Mumbai) are fine for IT-service companies but core ENTC roles are harder to land.",
+        "rating": 3
+      },
+      {
+        "content": "Infrastructure at Vidyalankar Institute of Technology (VIT Mumbai) is okay but the library and labs could use an upgrade.",
+        "rating": 3
+      },
+      {
+        "content": "Seniors and professors at Vidyalankar Institute of Technology (VIT Mumbai) go out of their way to help you with projects and interview prep.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Fr. Conceicao Rodrigues College of Engineering (CRCE)",
+    "reviews": [
+      {
+        "content": "Seniors and professors at Fr. Conceicao Rodrigues College of Engineering (CRCE) go out of their way to help you with projects and interview prep.",
+        "rating": 4
+      },
+      {
+        "content": "For the fees, the placement support and internship tie-ups at Fr. Conceicao Rodrigues College of Engineering (CRCE) are genuinely good value.",
+        "rating": 4
+      },
+      {
+        "content": "Fr. Conceicao Rodrigues College of Engineering (CRCE) has decent labs and the Mechanical department in particular is quite active with industry projects.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Fr. Conceicao Rodrigues Institute of Technology (FCRIT)",
+    "reviews": [
+      {
+        "content": "Some professors at Fr. Conceicao Rodrigues Institute of Technology (FCRIT) are excellent while others clearly don't want to be there — very hit or miss.",
+        "rating": 3
+      },
+      {
+        "content": "Fr. Conceicao Rodrigues Institute of Technology (FCRIT) gave me solid the AI/ML branch fundamentals and the faculty were always approachable.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Rajiv Gandhi Institute of Technology (RGIT)",
+    "reviews": [
+      {
+        "content": "I didn't expect much going in, but Rajiv Gandhi Institute of Technology (RGIT) turned out to have a decent IT lab setup.",
+        "rating": 4
+      },
+      {
+        "content": "Rajiv Gandhi Institute of Technology (RGIT) is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      },
+      {
+        "content": "Campus life at Rajiv Gandhi Institute of Technology (RGIT) is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Atharva College of Engineering",
+    "reviews": [
+      {
+        "content": "Campus life at Atharva College of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      },
+      {
+        "content": "For a smaller college, Atharva College of Engineering gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Xavier Institute of Engineering",
+    "reviews": [
+      {
+        "content": "Campus life at Xavier Institute of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      },
+      {
+        "content": "Xavier Institute of Engineering is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "St. Francis Institute of Technology",
+    "reviews": [
+      {
+        "content": "For a smaller college, St. Francis Institute of Technology gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      },
+      {
+        "content": "Campus life at St. Francis Institute of Technology is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Watumull Institute of Electronics Engineering & Computer Technology",
+    "reviews": [
+      {
+        "content": "Watumull Institute of Electronics Engineering & Computer Technology is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 5
+      },
+      {
+        "content": "Campus life at Watumull Institute of Electronics Engineering & Computer Technology is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Terna Engineering College",
+    "reviews": [
+      {
+        "content": "Terna Engineering College is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      },
+      {
+        "content": "Faculty at Terna Engineering College are supportive but the Electrical equipment in labs is quite old.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "Pillai College of Engineering",
+    "reviews": [
+      {
+        "content": "Infrastructure at Pillai College of Engineering badly needs an upgrade — Wi-Fi and lab equipment are both unreliable.",
+        "rating": 2
+      },
+      {
+        "content": "Pillai College of Engineering is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Pillai HOC College of Engineering and Technology",
+    "reviews": [
+      {
+        "content": "Pillai HOC College of Engineering and Technology is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      },
+      {
+        "content": "Campus life at Pillai HOC College of Engineering and Technology is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Ramrao Adik Institute of Technology (RAIT)",
+    "reviews": [
+      {
+        "content": "Ramrao Adik Institute of Technology (RAIT) is decent overall but the admin process for internships and no-dues is painfully slow.",
+        "rating": 3
+      },
+      {
+        "content": "Fees at Ramrao Adik Institute of Technology (RAIT) have gone up but the facilities haven't really improved to match.",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "collegeName": "MGM College of Engineering and Technology",
+    "reviews": [
+      {
+        "content": "For a smaller college, MGM College of Engineering and Technology gives surprisingly good individual attention from faculty.",
+        "rating": 4
+      },
+      {
+        "content": "Placement drives at MGM College of Engineering and Technology are rare and mostly limited to low-paying service companies.",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "collegeName": "Vivekanand Education Society's Institute of Technology (VESIT)",
+    "reviews": [
+      {
+        "content": "For the fees, the placement support and internship tie-ups at Vivekanand Education Society's Institute of Technology (VESIT) are genuinely good value.",
+        "rating": 4
+      },
+      {
+        "content": "Vivekanand Education Society's Institute of Technology (VESIT) has decent labs and the Civil department in particular is quite active with industry projects.",
+        "rating": 4
+      },
+      {
+        "content": "Vivekanand Education Society's Institute of Technology (VESIT) is decent overall but the admin process for internships and no-dues is painfully slow.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "Shah and Anchor Kutchhi Engineering College",
+    "reviews": [
+      {
+        "content": "Campus life at Shah and Anchor Kutchhi Engineering College is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      },
+      {
+        "content": "I didn't expect much going in, but Shah and Anchor Kutchhi Engineering College turned out to have a decent ENTC lab setup.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Don Bosco Institute of Technology",
+    "reviews": [
+      {
+        "content": "Don Bosco Institute of Technology is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      },
+      {
+        "content": "Campus life at Don Bosco Institute of Technology is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Universal College of Engineering",
+    "reviews": [
+      {
+        "content": "Campus life at Universal College of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      },
+      {
+        "content": "Placement drives at Universal College of Engineering are rare and mostly limited to low-paying service companies.",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "collegeName": "Lokmanya Tilak College of Engineering",
+    "reviews": [
+      {
+        "content": "Campus life at Lokmanya Tilak College of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      },
+      {
+        "content": "The campus at Lokmanya Tilak College of Engineering is functional but pretty basic — no frills, just classrooms and labs.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "Vidyavardhini's College of Engineering and Technology (VCET)",
+    "reviews": [
+      {
+        "content": "For a smaller college, Vidyavardhini's College of Engineering and Technology (VCET) gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      },
+      {
+        "content": "Campus life at Vidyavardhini's College of Engineering and Technology (VCET) is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      },
+      {
+        "content": "Vidyavardhini's College of Engineering and Technology (VCET) is fine for the fees but don't expect strong on-campus placements — you'll have to hustle yourself.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "St. John College of Engineering and Technology",
+    "reviews": [
+      {
+        "content": "Faculty at St. John College of Engineering and Technology are supportive but the Mechanical equipment in labs is quite old.",
+        "rating": 3
+      },
+      {
+        "content": "For a smaller college, St. John College of Engineering and Technology gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Padmabhushan Vasantdada Patil Pratishthan's College of Engineering (PVPPCOE)",
+    "reviews": [
+      {
+        "content": "Padmabhushan Vasantdada Patil Pratishthan's College of Engineering (PVPPCOE) is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      },
+      {
+        "content": "Padmabhushan Vasantdada Patil Pratishthan's College of Engineering (PVPPCOE) is fine for the fees but don't expect strong on-campus placements — you'll have to hustle yourself.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "Rizvi College of Engineering",
+    "reviews": [
+      {
+        "content": "For a smaller college, Rizvi College of Engineering gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      },
+      {
+        "content": "I felt Rizvi College of Engineering oversold itself in the brochure compared to what's actually on campus.",
+        "rating": 1
+      }
+    ]
+  },
+  {
+    "collegeName": "Anjuman-I-Islam's Kalsekar Technical Campus (AIKTC)",
+    "reviews": [
+      {
+        "content": "I didn't expect much going in, but Anjuman-I-Islam's Kalsekar Technical Campus (AIKTC) turned out to have a decent the AI/ML branch lab setup.",
+        "rating": 4
+      },
+      {
+        "content": "For a smaller college, Anjuman-I-Islam's Kalsekar Technical Campus (AIKTC) gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      },
+      {
+        "content": "Campus life at Anjuman-I-Islam's Kalsekar Technical Campus (AIKTC) is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "K C College of Engineering and Management Studies",
+    "reviews": [
+      {
+        "content": "The campus at K C College of Engineering and Management Studies is functional but pretty basic — no frills, just classrooms and labs.",
+        "rating": 3
+      },
+      {
+        "content": "I didn't expect much going in, but K C College of Engineering and Management Studies turned out to have a decent IT lab setup.",
+        "rating": 4
+      },
+      {
+        "content": "For a smaller college, K C College of Engineering and Management Studies gives surprisingly good individual attention from faculty.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "SIES Graduate School of Technology",
+    "reviews": [
+      {
+        "content": "Placements at SIES Graduate School of Technology are fine for IT-service companies but core Electronics roles are harder to land.",
+        "rating": 3
+      },
+      {
+        "content": "The campus fests and clubs at SIES Graduate School of Technology make college life fun beyond just academics.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Datta Meghe College of Engineering",
+    "reviews": [
+      {
+        "content": "For a smaller college, Datta Meghe College of Engineering gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      },
+      {
+        "content": "The campus at Datta Meghe College of Engineering is functional but pretty basic — no frills, just classrooms and labs.",
+        "rating": 3
+      },
+      {
+        "content": "Campus life at Datta Meghe College of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "A.C. Patil College of Engineering",
+    "reviews": [
+      {
+        "content": "A.C. Patil College of Engineering is fine for the fees but don't expect strong on-campus placements — you'll have to hustle yourself.",
+        "rating": 3
+      },
+      {
+        "content": "Campus life at A.C. Patil College of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Konkan Gyanpeeth College of Engineering",
+    "reviews": [
+      {
+        "content": "Campus life at Konkan Gyanpeeth College of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      },
+      {
+        "content": "For a smaller college, Konkan Gyanpeeth College of Engineering gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Alamuri Ratnamala Institute of Technology (ARMIET)",
+    "reviews": [
+      {
+        "content": "Alamuri Ratnamala Institute of Technology (ARMIET) is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      },
+      {
+        "content": "Campus life at Alamuri Ratnamala Institute of Technology (ARMIET) is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Thakur College of Engineering and Technology (TCET)",
+    "reviews": [
+      {
+        "content": "Thakur College of Engineering and Technology (TCET) has decent labs and the ENTC department in particular is quite active with industry projects.",
+        "rating": 5
+      },
+      {
+        "content": "Seniors and professors at Thakur College of Engineering and Technology (TCET) go out of their way to help you with projects and interview prep.",
+        "rating": 5
+      },
+      {
+        "content": "Thakur College of Engineering and Technology (TCET) gave me solid Electrical fundamentals and the faculty were always approachable.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Saraswati College of Engineering",
+    "reviews": [
+      {
+        "content": "Saraswati College of Engineering is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      },
+      {
+        "content": "I didn't expect much going in, but Saraswati College of Engineering turned out to have a decent Electrical lab setup.",
+        "rating": 5
+      },
+      {
+        "content": "Campus life at Saraswati College of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Shivajirao S. Jondhle College of Engineering and Technology",
+    "reviews": [
+      {
+        "content": "Campus life at Shivajirao S. Jondhle College of Engineering and Technology is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      },
+      {
+        "content": "Shivajirao S. Jondhle College of Engineering and Technology is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 5
+      },
+      {
+        "content": "For a smaller college, Shivajirao S. Jondhle College of Engineering and Technology gives surprisingly good individual attention from faculty.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Smt. Indira Gandhi College of Engineering",
+    "reviews": [
+      {
+        "content": "Faculty at Smt. Indira Gandhi College of Engineering are supportive but the the AI/ML branch equipment in labs is quite old.",
+        "rating": 3
+      },
+      {
+        "content": "I didn't expect much going in, but Smt. Indira Gandhi College of Engineering turned out to have a decent Civil lab setup.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Anjuman-I-Islam's M.H. Saboo Siddik College of Engineering",
+    "reviews": [
+      {
+        "content": "Campus life at Anjuman-I-Islam's M.H. Saboo Siddik College of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      },
+      {
+        "content": "The campus at Anjuman-I-Islam's M.H. Saboo Siddik College of Engineering is functional but pretty basic — no frills, just classrooms and labs.",
+        "rating": 3
+      },
+      {
+        "content": "Anjuman-I-Islam's M.H. Saboo Siddik College of Engineering is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "NMIMS Mukesh Patel School of Technology Management & Engineering (MPSTME)",
+    "reviews": [
+      {
+        "content": "NMIMS Mukesh Patel School of Technology Management & Engineering (MPSTME) has decent labs and the CSE department in particular is quite active with industry projects.",
+        "rating": 5
+      },
+      {
+        "content": "For the fees, the placement support and internship tie-ups at NMIMS Mukesh Patel School of Technology Management & Engineering (MPSTME) are genuinely good value.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Bharati Vidyapeeth College of Engineering, Navi Mumbai",
+    "reviews": [
+      {
+        "content": "Bharati Vidyapeeth College of Engineering, Navi Mumbai is fine for the fees but don't expect strong on-campus placements — you'll have to hustle yourself.",
+        "rating": 3
+      },
+      {
+        "content": "Campus life at Bharati Vidyapeeth College of Engineering, Navi Mumbai is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "K. J. Somaiya Institute of Engineering & Information Technology",
+    "reviews": [
+      {
+        "content": "For a smaller college, K. J. Somaiya Institute of Engineering & Information Technology gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      },
+      {
+        "content": "K. J. Somaiya Institute of Engineering & Information Technology is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Vishwaniketan's Institute of Management Entrepreneurship and Engineering Technology (iMEET)",
+    "reviews": [
+      {
+        "content": "For a smaller college, Vishwaniketan's Institute of Management Entrepreneurship and Engineering Technology (iMEET) gives surprisingly good individual attention from faculty.",
+        "rating": 4
+      },
+      {
+        "content": "Faculty at Vishwaniketan's Institute of Management Entrepreneurship and Engineering Technology (iMEET) are supportive but the ENTC equipment in labs is quite old.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "Bharati Vidyapeeth's College of Engineering for Women",
+    "reviews": [
+      {
+        "content": "Bharati Vidyapeeth's College of Engineering for Women is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      },
+      {
+        "content": "I didn't expect much going in, but Bharati Vidyapeeth's College of Engineering for Women turned out to have a decent ENTC lab setup.",
+        "rating": 4
+      },
+      {
+        "content": "For a smaller college, Bharati Vidyapeeth's College of Engineering for Women gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Yadavrao Tasgaonkar Institute of Engineering and Technology",
+    "reviews": [
+      {
+        "content": "For a smaller college, Yadavrao Tasgaonkar Institute of Engineering and Technology gives surprisingly good individual attention from faculty.",
+        "rating": 4
+      },
+      {
+        "content": "Campus life at Yadavrao Tasgaonkar Institute of Engineering and Technology is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Yadavrao Tasgaonkar College of Engineering and Management",
+    "reviews": [
+      {
+        "content": "Campus life at Yadavrao Tasgaonkar College of Engineering and Management is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 4
+      },
+      {
+        "content": "The campus at Yadavrao Tasgaonkar College of Engineering and Management is functional but pretty basic — no frills, just classrooms and labs.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "G. V. Acharya Institute of Engineering and Technology",
+    "reviews": [
+      {
+        "content": "Campus life at G. V. Acharya Institute of Engineering and Technology is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      },
+      {
+        "content": "For a smaller college, G. V. Acharya Institute of Engineering and Technology gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Theem College of Engineering",
+    "reviews": [
+      {
+        "content": "Infrastructure at Theem College of Engineering badly needs an upgrade — Wi-Fi and lab equipment are both unreliable.",
+        "rating": 2
+      },
+      {
+        "content": "Faculty at Theem College of Engineering are supportive but the IT equipment in labs is quite old.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "Viva Institute of Technology",
+    "reviews": [
+      {
+        "content": "I didn't expect much going in, but Viva Institute of Technology turned out to have a decent Electrical lab setup.",
+        "rating": 5
+      },
+      {
+        "content": "For a smaller college, Viva Institute of Technology gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "New Horizon Institute of Technology and Management",
+    "reviews": [
+      {
+        "content": "For a smaller college, New Horizon Institute of Technology and Management gives surprisingly good individual attention from faculty.",
+        "rating": 5
+      },
+      {
+        "content": "Faculty at New Horizon Institute of Technology and Management are supportive but the Electrical equipment in labs is quite old.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "Bombay Institute of Engineering and Technology",
+    "reviews": [
+      {
+        "content": "Bombay Institute of Engineering and Technology is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 4
+      },
+      {
+        "content": "Campus life at Bombay Institute of Engineering and Technology is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      }
+    ]
+  },
+  {
+    "collegeName": "Rajendra Mane College of Engineering and Technology",
+    "reviews": [
+      {
+        "content": "For a smaller college, Rajendra Mane College of Engineering and Technology gives surprisingly good individual attention from faculty.",
+        "rating": 4
+      },
+      {
+        "content": "I felt Rajendra Mane College of Engineering and Technology oversold itself in the brochure compared to what's actually on campus.",
+        "rating": 2
+      }
+    ]
+  },
+  {
+    "collegeName": "Bhartiya Vidya Bhavan's Sardar Patel Polytechnic-linked College of Engineering",
+    "reviews": [
+      {
+        "content": "Bhartiya Vidya Bhavan's Sardar Patel Polytechnic-linked College of Engineering is affordable and the teachers genuinely care if you make an effort to ask for help.",
+        "rating": 5
+      },
+      {
+        "content": "The campus at Bhartiya Vidya Bhavan's Sardar Patel Polytechnic-linked College of Engineering is functional but pretty basic — no frills, just classrooms and labs.",
+        "rating": 3
+      }
+    ]
+  },
+  {
+    "collegeName": "Anjuman-I-Islam's College of Engineering",
+    "reviews": [
+      {
+        "content": "Campus life at Anjuman-I-Islam's College of Engineering is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      },
+      {
+        "content": "For a smaller college, Anjuman-I-Islam's College of Engineering gives surprisingly good individual attention from faculty.",
+        "rating": 4
+      }
+    ]
+  },
+  {
+    "collegeName": "Universal Institute of Technology",
+    "reviews": [
+      {
+        "content": "Campus life at Universal Institute of Technology is close-knit — everyone knows everyone, which has its own charm.",
+        "rating": 5
+      },
+      {
+        "content": "I didn't expect much going in, but Universal Institute of Technology turned out to have a decent Electronics lab setup.",
+        "rating": 4
+      }
+    ]
+  }
+]

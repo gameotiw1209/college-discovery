@@ -11,6 +11,12 @@ interface Placements {
   year: number
 }
 
+interface Review {
+  id: string
+  content: string
+  rating: number
+}
+
 interface College {
   id: string
   name: string
@@ -24,9 +30,10 @@ interface College {
   campusSize: number
   nirfRanking: number
   facilities: string[]
+  reviews:Review[]
 }
 
-type Tab = 'overview' | 'fees' | 'campus'
+type Tab = 'overview' | 'fees' | 'campus' |'reviews'
 
 export default function CollegesPage() {
   const router = useRouter()
@@ -111,7 +118,7 @@ export default function CollegesPage() {
         <div className="flex items-center gap-3 mb-4">
           <h1 className="font-heading text-2xl font-bold">Colleges</h1>
           <span className="px-3 py-1 rounded-full bg-white/10 text-xs text-white/70">
-            {colleges.length} premier institutes
+            {colleges.length}  Institutes
           </span>
           {selected && (
             <button
@@ -267,7 +274,7 @@ export default function CollegesPage() {
               </div>
 
               <div className="flex gap-2 mb-6 border-b border-white/10 pb-4">
-                {(['overview', 'fees', 'campus'] as Tab[]).map((tab) => (
+                {(['overview', 'fees', 'campus','reviews'] as Tab[]).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveTab(tab)}
@@ -275,7 +282,13 @@ export default function CollegesPage() {
                       activeTab === tab ? 'bg-white text-black' : 'text-white/60 hover:text-white'
                     }`}
                   >
-                    {tab === 'overview' ? 'Overview & Recruiters' : tab === 'fees' ? 'Fees' : 'Campus & Facilities'}
+                    {tab === 'overview'
+                      ? 'Overview & Recruiters'
+                      : tab === 'fees'
+                        ? 'Fees'
+                        : tab === 'campus'
+                          ? 'Campus & Facilities'
+                          : `Reviews(${selected.reviews?.length || 0})`}
                   </button>
                 ))}
               </div>
@@ -315,6 +328,40 @@ export default function CollegesPage() {
                   </div>
                 </div>
               )}
+              {activeTab === 'reviews' && (
+  <div>
+    {selected.reviews?.length > 0 ? (
+      <div className="space-y-4">
+        {selected.reviews.map((review) => (
+          <div
+            key={review.id}
+            className="rounded-xl bg-white/5 border border-white/10 p-5"
+          >
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-sm">
+                {'★'.repeat(review.rating)}
+              </span>
+
+              <span className="text-xs text-white/40">
+                {review.rating}/5
+              </span>
+            </div>
+
+            <p className="text-sm text-white/70 leading-relaxed">
+              {review.content}
+            </p>
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div className="rounded-xl bg-white/5 p-6 text-center">
+        <p className="text-white/50 text-sm">
+          No reviews available for this college.
+        </p>
+      </div>
+    )}
+  </div>
+)}
             </div>
           </div>
         </div>
