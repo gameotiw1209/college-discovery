@@ -1,8 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 
-interface CollegeSummary {
+interface College {
   id: string
   name: string
   rating: number
@@ -10,441 +12,241 @@ interface CollegeSummary {
   nirfRanking: number
 }
 
-type MetricKey =
-  | 'rating'
-  | 'placementRate'
-  | 'nirfRanking'
+type MetricKey = 'rating' | 'placementRate' | 'nirfRanking'
+type TabKey = 'all' | 'placement' | 'rankings' | 'overall'
 
 const METRICS: {
   key: MetricKey
   label: string
-  description: string
   unit: string
+  lowerIsBetter?: boolean
+  tab: TabKey
+  source: string
 }[] = [
-  {
-    key: 'rating',
-    label: 'Overall Rating',
-    description: 'Student & institutional rating',
-    unit: '★',
-  },
-  {
-    key: 'placementRate',
-    label: 'Placement Rate',
-    description: 'Percentage of students placed',
-    unit: '%',
-  },
-  {
-    key: 'nirfRanking',
-    label: 'NIRF Ranking',
-    description: 'India Rankings position',
-    unit: '',
-  },
+  { key: 'placementRate', label: 'Placement Rate', unit: '%', tab: 'placement', source: 'findCareer dataset' },
+  { key: 'nirfRanking', label: 'NIRF Ranking', unit: '', lowerIsBetter: true, tab: 'rankings', source: 'findCareer dataset' },
+  { key: 'rating', label: 'Overall Rating', unit: '/5', tab: 'overall', source: 'findCareer dataset' },
 ]
 
-export default function ComparePage() {
-  const [colleges, setColleges] = useState<CollegeSummary[]>([])
+function initials(name: string) {
+  return name.split(' ').map((w) => w[0]).join('').toUpperCase().slice(0, 4)
+}
+
+function CollegeDropdown({
+  label,
+  colleges,
+  value,
+  onChange,
+  exclude,
+}: {
+  label: string
+  colleges: College[]
+  value: string
+  onChange: (id: string) => void
+  exclude: string
+}) {
+  const [open, setOpen] = useState(false)
+  const [query, setQuery] = useState('')
+  const selected = colleges.find((c) => c.id === value)
+  const options = colleges.filter(
+    (c) => c.id !== exclude && c.name.toLowerCase().includes(query.toLowerCase())
+  )
+
+  return (
+    <div className="relative flex-1">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-left hover:border-white/20 transition-colors"
+      >
+        <div className="flex items-center gap-3">
+          <span className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xs font-bold tracking-tight">
+            {selected ? initials(selected.name) : '—'}
+          </span>
+          <div>
+            <p className="text-[10px] text-white/40 tracking-widest uppercase">{label}</p>
+            <p className="text-lg font-semibold leading-tight">{selected?.name ?? 'Select a college'}</p>
+          </div>
+        </div>
+        <span className="text-white/30 text-sm">⌄</span>
+      </button>
+
+      {open && (
+        <div className="absolute z-20 mt-2 w-full bg-[#0a0a0a] border border-white/10 rounded-xl shadow-2xl max-h-72 overflow-hidden flex flex-col">
+          <input
+            autoFocus
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search colleges..."
+            className="bg-white/5 mx-3 mt-3 mb-2 px-3 py-2 rounded-lg text-sm outline-none border border-white/10 focus:border-white/25"
+          />
+          <div className="overflow-y-auto">
+            {options.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => {
+                  onChange(c.id)
+                  setOpen(false)
+                  setQuery('')
+                }}
+                className="w-full text-left px-4 py-2.5 text-sm hover:bg-white/5 transition-colors"
+              >
+                {c.name}
+              </button>
+            ))}
+            {options.length === 0 && (
+              <p className="px-4 py-3 text-sm text-white/30">No matches.</p>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function ComparePageContent() {
+  const searchParams = useSearchParams()
+  const [colleges, setColleges] = useState<College[]>([])
   const [baselineId, setBaselineId] = useState('')
   const [compareId, setCompareId] = useState('')
-  const [activeMetric, setActiveMetric] =
-    useState<MetricKey>('rating')
-
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
+  const [activeTab, setActiveTab] = useState<TabKey>('all')
 
   useEffect(() => {
-    async function loadColleges() {
-      try {
-        const res = await fetch('/api/colleges/all')
-
-        if (!res.ok) {
-          throw new Error('Failed to fetch colleges')
-        }
-
-        const data: { colleges: CollegeSummary[] } =
-          await res.json()
-
+    fetch('/api/colleges/all')
+      .then((res) => res.json())
+      .then((data: { colleges: College[] }) => {
         setColleges(data.colleges)
-
-        if (data.colleges.length >= 2) {
+        const idsParam = searchParams.get('ids')
+        const ids = idsParam ? idsParam.split(',').filter(Boolean) : []
+        if (ids.length >= 2) {
+          setBaselineId(ids[0])
+          setCompareId(ids[1])
+        } else if (data.colleges.length >= 2) {
           setBaselineId(data.colleges[0].id)
           setCompareId(data.colleges[1].id)
         }
-      } catch (error) {
-        console.error(error)
-        setError('Unable to load colleges.')
-      } finally {
-        setLoading(false)
-      }
-    }
+      })
+  }, [searchParams])
 
-    loadColleges()
-  }, [])
-
-  if (loading) {
-    return (
-      <main className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <p className="text-slate-500">
-          Loading colleges...
-        </p>
-      </main>
-    )
-  }
-
-  if (error) {
-    return (
-      <main className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <p className="text-red-500">{error}</p>
-      </main>
-    )
-  }
+  const baseline = colleges.find((c) => c.id === baselineId)
+  const compare = colleges.find((c) => c.id === compareId)
+  const visibleMetrics = METRICS.filter((m) => activeTab === 'all' || m.tab === activeTab)
 
   if (colleges.length < 2) {
     return (
-      <main className="min-h-screen bg-slate-50 flex items-center justify-center">
-        <p className="text-slate-500">
-          You need at least two colleges to compare.
-        </p>
-      </main>
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <p className="text-white/40">Need at least 2 colleges to compare.</p>
+      </div>
     )
   }
 
-  const baseline = colleges.find(
-    (college) => college.id === baselineId
-  )
-
-  const compare = colleges.find(
-    (college) => college.id === compareId
-  )
-
-  const metric = METRICS.find(
-    (metric) => metric.key === activeMetric
-  )!
-
-  const baseVal = baseline?.[activeMetric] ?? 0
-  const compVal = compare?.[activeMetric] ?? 0
-
-  /*
-    Rating + Placement Rate:
-      higher = better
-
-    NIRF:
-      lower = better
-  */
-  const baselineWins =
-    activeMetric === 'nirfRanking'
-      ? baseVal < compVal
-      : baseVal > compVal
-
-  const compareWins =
-    activeMetric === 'nirfRanking'
-      ? compVal < baseVal
-      : compVal > baseVal
-
-  const tie = baseVal === compVal
-
-  let winnerText = ''
-
-  if (tie) {
-    winnerText = 'Both colleges are equal on this metric.'
-  } else if (baselineWins) {
-    winnerText = `${baseline?.name} leads on ${metric.label.toLowerCase()}.`
-  } else if (compareWins) {
-    winnerText = `${compare?.name} leads on ${metric.label.toLowerCase()}.`
-  }
-
-  /*
-    For the visual comparison bar:
-    higher value gets larger width for rating/placement.
-
-    For NIRF, reverse the values because a smaller rank is better.
-  */
-
-  let baseScore = baseVal
-  let compScore = compVal
-
-  if (activeMetric === 'nirfRanking') {
-    baseScore = baseVal > 0 ? 1 / baseVal : 0
-    compScore = compVal > 0 ? 1 / compVal : 0
-  }
-
-  const total = baseScore + compScore
-
-  const baseWidth =
-    total > 0 ? (baseScore / total) * 100 : 50
-
-  const compWidth =
-    total > 0 ? (compScore / total) * 100 : 50
-
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
-
-      {/* Header */}
-      <div className="border-b border-slate-200 bg-white">
-        <div className="max-w-6xl mx-auto px-6 py-8">
-
-          <p className="text-sm font-medium text-indigo-600 mb-2">
-            COLLEGE DISCOVERY
-          </p>
-
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Compare colleges
-          </h1>
-
-          <p className="text-slate-500 mt-2 max-w-xl">
-            Compare colleges across ratings, placement
-            performance and NIRF ranking.
-          </p>
-
+    <div className="min-h-screen bg-black text-white">
+      <nav className="flex items-center justify-between px-10 py-5 border-b border-white/10">
+        <Link href="/colleges" className="font-heading text-xl font-bold tracking-tight">findCollege</Link>
+        <div className="flex items-center gap-8 text-sm font-heading">
+          <Link href="/colleges" className="text-white/50 hover:text-white transition-colors">Colleges</Link>
+          <span className="px-4 py-1.5 rounded-full bg-white/10 font-medium">Compare</span>
         </div>
-      </div>
+        <div className="flex items-center gap-4">
+          <button className="rounded-full border border-white/15 px-4 py-1.5 text-sm hover:bg-white/10 transition-colors">
+            Logout
+          </button>
+        </div>
+      </nav>
 
-      <div className="max-w-6xl mx-auto px-6 py-10">
-
-        {/* College selectors */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
-
-          {/* Baseline */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-
-            <p className="text-xs font-semibold tracking-wider text-slate-400 mb-2">
-              COLLEGE 1
-            </p>
-
-            <select
-              value={baselineId}
-              onChange={(e) =>
-                setBaselineId(e.target.value)
-              }
-              className="w-full bg-transparent text-lg font-semibold text-slate-900 outline-none cursor-pointer"
-            >
-              {colleges
-                .filter(
-                  (college) => college.id !== compareId
-                )
-                .map((college) => (
-                  <option
-                    key={college.id}
-                    value={college.id}
-                  >
-                    {college.name}
-                  </option>
-                ))}
-            </select>
-
+      <div className="max-w-4xl mx-auto px-8 py-12">
+        <div className="flex items-center gap-4 mb-10">
+          <CollegeDropdown label="Baseline" colleges={colleges} value={baselineId} onChange={setBaselineId} exclude={compareId} />
+          <div className="shrink-0 w-11 h-11 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-xs font-bold tracking-wide">
+            VS
           </div>
-
-          {/* VS */}
-          <div className="flex items-center justify-center">
-            <div className="w-11 h-11 rounded-full bg-indigo-50 border border-indigo-100 flex items-center justify-center">
-              <span className="text-xs font-bold text-indigo-600">
-                VS
-              </span>
-            </div>
-          </div>
-
-          {/* Compare */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-
-            <p className="text-xs font-semibold tracking-wider text-slate-400 mb-2">
-              COLLEGE 2
-            </p>
-
-            <select
-              value={compareId}
-              onChange={(e) =>
-                setCompareId(e.target.value)
-              }
-              className="w-full bg-transparent text-lg font-semibold text-slate-900 outline-none cursor-pointer"
-            >
-              {colleges
-                .filter(
-                  (college) => college.id !== baselineId
-                )
-                .map((college) => (
-                  <option
-                    key={college.id}
-                    value={college.id}
-                  >
-                    {college.name}
-                  </option>
-                ))}
-            </select>
-
-          </div>
-
+          <CollegeDropdown label="Compare with" colleges={colleges} value={compareId} onChange={setCompareId} exclude={baselineId} />
         </div>
 
-        {/* Metric selector */}
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
+        <div className="flex gap-2 mb-10 justify-center flex-wrap">
+          {(['all', 'placement', 'rankings', 'overall'] as TabKey[]).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeTab === tab
+                  ? 'bg-white text-black'
+                  : 'bg-white/[0.04] text-white/50 hover:text-white/80 border border-white/10'
+              }`}
+            >
+              {tab === 'all' ? 'All Metrics' : tab === 'placement' ? 'Placement' : tab === 'rankings' ? 'Rankings' : 'Overall'}
+            </button>
+          ))}
+        </div>
 
-          {METRICS.map((item) => {
-            const active =
-              activeMetric === item.key
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {visibleMetrics.map((metric) => {
+            const baseVal = baseline ? baseline[metric.key] : 0
+            const compVal = compare ? compare[metric.key] : 0
+            const baseScore = metric.lowerIsBetter ? 1 / (baseVal || 1) : baseVal
+            const compScore = metric.lowerIsBetter ? 1 / (compVal || 1) : compVal
+            const total = baseScore + compScore || 1
+            const baseWidth = (baseScore / total) * 100
+
+            let leaderNote = 'Select two different colleges to compare.'
+            if (baseline && compare) {
+              const baseWins = metric.lowerIsBetter ? baseVal < compVal : baseVal > compVal
+              const compWins = metric.lowerIsBetter ? compVal < baseVal : compVal > baseVal
+              if (baseWins) leaderNote = `${baseline.name} leads on this metric`
+              else if (compWins) leaderNote = `${compare.name} leads on this metric`
+              else leaderNote = "It's a tie on this metric"
+            }
+
+            const display = (val: number) => (metric.key === 'nirfRanking' ? `#${val}` : `${val}${metric.unit}`)
 
             return (
-              <button
-                key={item.key}
-                onClick={() =>
-                  setActiveMetric(item.key)
-                }
-                className={`px-5 py-3 rounded-xl border text-sm font-medium transition-all ${
-                  active
-                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm'
-                    : 'bg-white text-slate-600 border-slate-200 hover:border-indigo-300 hover:text-indigo-600'
-                }`}
+              <div
+                key={metric.key}
+                className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 hover:border-white/15 transition-colors"
               >
-                {item.label}
-              </button>
+                <h2 className="text-sm text-white/50 mb-5 font-medium">{metric.label}</h2>
+
+                <div className="flex justify-between items-start mb-5">
+                  <div>
+                    <p className="text-[10px] text-white/30 mb-1.5 tracking-widest uppercase">
+                      {initials(baseline?.name ?? '')}
+                    </p>
+                    <p className="text-4xl font-bold tracking-tight">{display(baseVal)}</p>
+                    <p className="text-xs text-white/40 mt-1.5">{baseline?.name}</p>
+                  </div>
+                  <span className="text-white/25 text-xs mt-7 font-medium">vs</span>
+                  <div className="text-right">
+                    <p className="text-[10px] text-white/30 mb-1.5 tracking-widest uppercase">
+                      {initials(compare?.name ?? '')}
+                    </p>
+                    <p className="text-4xl font-bold tracking-tight">{display(compVal)}</p>
+                    <p className="text-xs text-white/40 mt-1.5">{compare?.name}</p>
+                  </div>
+                </div>
+
+                <div className="h-1 rounded-full bg-white/10 overflow-hidden flex mb-4">
+                  <div className="h-full bg-white transition-all duration-300" style={{ width: `${baseWidth}%` }} />
+                  <div className="h-full bg-white/15 flex-1" />
+                </div>
+
+                <p className="text-sm text-white/60 mb-4">{leaderNote}</p>
+                <p className="text-[11px] text-white/25 border-t border-white/[0.06] pt-3">
+                  Source: {metric.source}
+                </p>
+              </div>
             )
           })}
-
         </div>
-
-        {/* Main comparison card */}
-        <div className="mt-8 bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
-
-          {/* Card header */}
-          <div className="px-7 py-6 border-b border-slate-100">
-
-            <p className="text-xs font-semibold tracking-wider text-indigo-600 uppercase">
-              Comparison
-            </p>
-
-            <h2 className="text-2xl font-bold mt-1">
-              {metric.label}
-            </h2>
-
-            <p className="text-sm text-slate-500 mt-1">
-              {metric.description}
-            </p>
-
-          </div>
-
-          {/* Values */}
-          <div className="p-7">
-
-            <div className="grid grid-cols-2 gap-8">
-
-              {/* Baseline */}
-              <div>
-                <p className="text-sm text-slate-500 mb-3">
-                  {baseline?.name}
-                </p>
-
-                <div className="flex items-baseline gap-1">
-
-                  <span
-                    className={`text-5xl font-bold ${
-                      baselineWins
-                        ? 'text-indigo-600'
-                        : 'text-slate-900'
-                    }`}
-                  >
-                    {baseVal}
-                  </span>
-
-                  <span className="text-lg text-slate-400">
-                    {metric.unit}
-                  </span>
-
-                </div>
-
-                {baselineWins && !tie && (
-                  <span className="inline-block mt-3 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-semibold">
-                    Leading
-                  </span>
-                )}
-              </div>
-
-              {/* Compare */}
-              <div className="text-right">
-
-                <p className="text-sm text-slate-500 mb-3">
-                  {compare?.name}
-                </p>
-
-                <div className="flex items-baseline justify-end gap-1">
-
-                  <span
-                    className={`text-5xl font-bold ${
-                      compareWins
-                        ? 'text-indigo-600'
-                        : 'text-slate-900'
-                    }`}
-                  >
-                    {compVal}
-                  </span>
-
-                  <span className="text-lg text-slate-400">
-                    {metric.unit}
-                  </span>
-
-                </div>
-
-                {compareWins && !tie && (
-                  <span className="inline-block mt-3 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-semibold">
-                    Leading
-                  </span>
-                )}
-
-              </div>
-
-            </div>
-
-            {/* Comparison bar */}
-            <div className="mt-8">
-
-              <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden flex gap-1">
-
-                <div
-                  className={`h-full transition-all duration-500 rounded-l-full ${
-                    baselineWins
-                      ? 'bg-indigo-600'
-                      : 'bg-slate-300'
-                  }`}
-                  style={{
-                    width: `${baseWidth}%`,
-                  }}
-                />
-
-                <div
-                  className={`h-full transition-all duration-500 rounded-r-full ${
-                    compareWins
-                      ? 'bg-indigo-600'
-                      : 'bg-slate-300'
-                  }`}
-                  style={{
-                    width: `${compWidth}%`,
-                  }}
-                />
-
-              </div>
-
-            </div>
-
-            {/* Winner */}
-            <div className="mt-7 p-4 rounded-xl bg-slate-50 border border-slate-100">
-              <p className="text-sm text-slate-600">
-                {winnerText}
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Metric explanation */}
-        <div className="mt-6 text-center">
-
-          <p className="text-xs text-slate-400">
-            {activeMetric === 'nirfRanking'
-              ? 'For NIRF ranking, a lower number represents a better rank.'
-              : 'Higher values indicate stronger performance.'}
-          </p>
-
-        </div>
-
       </div>
-    </main>
+    </div>
+  )
+}
+
+export default function ComparePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-black" />}>
+      <ComparePageContent />
+    </Suspense>
   )
 }

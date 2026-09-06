@@ -11,14 +11,14 @@ export default function Home() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
         <div className="flex items-center justify-between px-10 py-6 max-w-6xl mx-auto">
           <span className="font-heading text-2xl font-bold tracking-tight">
-            findCareer
+            findCollege
           </span>
           <div className="flex items-center gap-16 font-heading">
             <Link
-              href="/"
+              href="/colleges"
               className="px-6 py-2 rounded-full border border-white/20 text-sm tracking-wide hover:border-white/50 transition-colors"
             >
-              Home
+              Colleges
             </Link>
             <Link
               href="/compare"
@@ -39,7 +39,7 @@ export default function Home() {
         </p>
 
         <Link
-          href="/colleges"
+          href="/"
           className="font-heading mt-10 px-8 py-3 rounded-full border border-white/30 text-sm tracking-wide hover:bg-white hover:text-black transition-colors"
         >
           Get Started

@@ -26,7 +26,7 @@ const indieFlower = Indie_Flower({
 })
 
 export const metadata: Metadata = {
-  title: 'findCareer',
+  title: 'findCollege',
   description: 'Find, compare, and choose the right college.',
 }
 

@@ -80,6 +80,13 @@ export default function CollegesPage() {
   useEffect(() => {
     setPage(1)
   }, [search, minRating,location, sortByNirf])
+  //moving top after pagination
+  useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  })
+}, [page])
 
   const selected = colleges.find((c) => c.id === selectedId)
 
@@ -99,11 +106,8 @@ export default function CollegesPage() {
     <div className="min-h-screen bg-black text-white">
       {/* Top bar */}
       <nav className="flex items-center justify-between px-10 py-5 border-b border-white/10">
-  <span className="font-heading text-xl font-bold">findCareer</span>
+  <Link href="/colleges" className="font-heading text-xl font-bold">findCollege</Link>
   <div className="flex items-center gap-8 text-sm font-heading">
-    <Link href="/" className="text-white/60 hover:text-white transition-colors">
-      Home
-    </Link>
     <span className="px-4 py-1.5 rounded-full bg-white/10">Colleges</span>
     <Link
       href={`/compare?ids=${compareIds.join(',')}`}
