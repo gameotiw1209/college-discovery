@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import LogoutButton from '@/components/logoutbutton'
 
 interface Placements {
   avgPackageLPA: number
@@ -108,9 +109,7 @@ export default function CollegesPage() {
           </Link>
         </div>
         <div className="flex items-center gap-4">
-          <button className="rounded-full border border-white/15 px-4 py-1.5 text-sm hover:bg-white/10 transition-colors">
-            Logout
-          </button>
+          <LogoutButton />
         </div>
       </nav>
 
@@ -328,40 +327,7 @@ export default function CollegesPage() {
                   </div>
                 </div>
               )}
-              {activeTab === 'reviews' && (
-  <div>
-    {selected.reviews?.length > 0 ? (
-      <div className="space-y-4">
-        {selected.reviews.map((review) => (
-          <div
-            key={review.id}
-            className="rounded-xl bg-white/5 border border-white/10 p-5"
-          >
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-sm">
-                {'★'.repeat(review.rating)}
-              </span>
-
-              <span className="text-xs text-white/40">
-                {review.rating}/5
-              </span>
-            </div>
-
-            <p className="text-sm text-white/70 leading-relaxed">
-              {review.content}
-            </p>
-          </div>
-        ))}
-      </div>
-    ) : (
-      <div className="rounded-xl bg-white/5 p-6 text-center">
-        <p className="text-white/50 text-sm">
-          No reviews available for this college.
-        </p>
-      </div>
-    )}
-  </div>
-)}
+              
             </div>
           </div>
         </div>

@@ -127,6 +127,18 @@ function ComparePageContent() {
         }
       })
   }, [searchParams])
+  //saving up the comaprison in jSON
+  const [saveStatus, setSaveStatus] = useState<'idle' | 'saved' | 'error'>('idle')
+
+    const handleSaveComparison = async () => {
+    const res=await fetch('/api/comparisons', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ collegeIds: [baselineId, compareId] }),
+    })
+    setSaveStatus(res.ok ? 'saved' : 'error')
+  setTimeout(() => setSaveStatus('idle'), 2000)
+  }
 
   const baseline = colleges.find(c => c.id === baselineId)
   const compare = colleges.find(c => c.id === compareId)
@@ -187,6 +199,15 @@ function ComparePageContent() {
             exclude={baselineId}
           />
         </div>
+        {/*saveComaprison*/}
+        <div className="flex justify-center mb-10">
+  <button
+    onClick={handleSaveComparison}
+    className="text-sm px-5 py-2 rounded-full border border-white/15 hover:bg-white/10 transition-colors"
+  >
+    Save this comparison
+  </button>
+</div>
 
         {/* Tabs */}
         <div className="flex gap-2 mb-10 justify-center flex-wrap">
